@@ -1,0 +1,148 @@
+.navbar-inverse {
+    background: #ff5722;
+    border-color: #ff5722;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+body {
+    background: #f9f9f9;
+}
+
+.main {
+    margin-top: 80px;
+}
+
+.footer {
+    width: 100%;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.main > .title {
+    font-size: 22px;
+}
+
+.main > .title img {
+    height: 50px;
+}
+
+.main .tip {
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.item-wrap {
+}
+
+.item-wrap .item {
+    border: 1px solid #eee;
+    box-shadow: 0 2px 4px 1px #eee;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.item-wrap .item .icon img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 1px solid #eee;
+    padding: 3px;
+}
+
+.item-wrap .item .content {
+    height: 100%;
+}
+
+.item-wrap .item .content .name {
+    font-weight: bold;
+}
+
+.item-wrap .item .content .text {
+
+}
+
+.title2 {
+    margin-bottom: 30px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.title2 img {
+    width: 42px;
+    margin-right: 15px;
+}
+
+.inp {
+    font-size: 15px;
+}
+
+.inp .title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.inp .title img {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+.inp .content {
+    display: flex;
+}
+
+.inp .time {
+    margin-bottom: 15px;
+}
+
+.inp .time input {
+    height: 35px;
+    margin-left: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0px 10px;
+}
+.inp .time select {
+    height: 35px;
+    margin-left: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0px 10px;
+}
+
+.inp .content textarea {
+    margin-left: 15px;
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#push {
+    width: 89px;
+    height: 35px;
+    color: #333;
+    line-height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    margin-left: 60px;
+    margin-top: 18px;
+    cursor: pointer;
+    background: #ff5722;
+    color: #fff;
+}
