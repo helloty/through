@@ -1,69 +1,54 @@
 "use strict";
 
-var ThroughItem = function (text) {
-    if (text) {
-        var obj = JSON.parse(text);
-        this.key = obj.key;
-        this.name = obj.name;
-        this.date = obj.date;
-        this.phone = obj.phone;
-        this.remark = obj.remark;
-    } else {
-        this.key = "";
-        this.name = "";
-        this.date = "";
-        this.phone = "";
-        this.remark = "";
-    }
-};
-
-
-ThroughItem.prototype = {
-    toString: function () {
-        return JSON.stringify(this);
-    }
-};
 var Through = function () {
-    LocalContractStorage.defineMapProperty(this, "repo", {
-        parse: function (text) {
-            return new ThroughItem(text);
-        },
-        stringify: function (o) {
-            return o.toString();
-        }
-    });
+    LocalContractStorage.defineMapProperty(this, "arrayMap");
+    LocalContractStorage.defineMapProperty(this, "dataMap");
+    LocalContractStorage.defineProperty(this, "size");
 };
 
 Through.prototype = {
     init: function () {
+        this.size = 0;
     },
-    save: function (key, name, phone, date, remark) {
-        //var from = Blockchain.transaction.from;
-        var throughItem = this.repo.get(key);
-        if (throughItem) {
-            throughItem.key = JSON.parse(throughItem).key;
-            throughItem.name = JSON.parse(throughItem).name + '|-' + name;
-            throughItem.phone = JSON.parse(throughItem).phone + '|-' + phone;
-            throughItem.date = JSON.parse(throughItem).date + '|-' + date;
-            throughItem.remark = JSON.parse(throughItem).remark + '|-' + remark;
-            this.repo.put(key, throughItem);
 
-        } else {
-            throughItem = new ThroughItem();
-            throughItem.key = key;
-            throughItem.name = name;
-            throughItem.phone = phone;
-            throughItem.date = date;
-            throughItem.remark = remark;
-            this.repo.put(key, throughItem);
-        }
+    set: function (key, value) {
+        var index = this.size;
+        this.arrayMap.set(index, key);
+        this.dataMap.set(key, value);
+        this.size += 1;
     },
+
     get: function (key) {
-        key = key.trim();
-        if (key === "") {
-            throw new Error("empty key")
+        return this.dataMap.get(key);
+    },
+
+    len: function () {
+        return this.size;
+    },
+
+    forEach: function (limit, offset) {
+        limit = parseInt(limit);
+        offset = parseInt(offset);
+        if (offset > this.size) {
+            throw new Error("offset is not valid");
         }
-        return this.repo.get(key);
+        var number = offset + limit;
+        if (number > this.size) {
+            number = this.size;
+        }
+        var result = [];
+        for (var i = offset; i < number; i++) {
+            var key = this.arrayMap.get(i);
+            var object = this.dataMap.get(key);
+            var temp = {
+                index: i,
+                key: key,
+                value: object
+            }
+            result.push(temp);
+        }
+        return JSON.stringify(result);
     }
 };
+
 module.exports = Through;

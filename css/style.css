@@ -1,6 +1,6 @@
 .navbar-inverse {
-    background: #ff5722;
-    border-color: #ff5722;
+    background: #66c1ff;
+    border-color: #66c1ff;
 }
 
 .navbar-inverse .navbar-brand {
@@ -65,7 +65,6 @@ body {
 }
 
 .item-wrap .item .content .name {
-    font-weight: bold;
 }
 
 .item-wrap .item .content .text {
@@ -137,12 +136,20 @@ body {
     height: 35px;
     color: #333;
     line-height: 35px;
-    border: 1px solid #ccc;
+    border: 1px solid #66c1ff;
     border-radius: 4px;
     text-align: center;
     margin-left: 60px;
     margin-top: 18px;
     cursor: pointer;
-    background: #ff5722;
+    background: #66c1ff;
     color: #fff;
+}
+
+.name .nc{
+    font-weight: bold;
+}
+
+.name .sc{
+    font-weight: bold;
 }
