@@ -89,10 +89,12 @@
 
     //检查扩展是否已安装
     //如果安装了扩展，var“webExtensionWallet”将被注入到web页面中
-    if (typeof(webExtensionWallet) === "undefined") {
-        //alert ("扩展钱包未安装，请先安装.")
-        $("#noExtension").show();
-    }
+    setTimeout(function(){
+        if (typeof(webExtensionWallet) === "undefined") {
+            //alert ("扩展钱包未安装，请先安装.")
+            $("#noExtension").show();
+        }
+    },500);
 
     var dappAddress = "n1vdVA9bhBrRHDZ8pmBGk57Mk2suiVGQKEY";
     var initKey = '';
